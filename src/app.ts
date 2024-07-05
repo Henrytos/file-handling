@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import { fileRoutesApp} from "./http/controllers/files/route";
+import { fileRoutesApp} from "./http/controllers/files/routes";
 import fastifyMultipart from '@fastify/multipart'
 export const app = fastify({
     logger:true
