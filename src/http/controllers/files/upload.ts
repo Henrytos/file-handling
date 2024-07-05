@@ -1,7 +1,8 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import fs from "fs";
-import path from "path";
-import { getPathToFiles } from "@/utils/get-path-project";
+import { getPathToFiles } from "@/utils/get-path-to-files";
+import { getPathToFolder } from "@/utils/get-path-to-folder";
+import { createFolderIfNotExists } from "@/utils/create-folder-if-not-exits";
 export async function uploadFile(req:FastifyRequest,reply:FastifyReply){
     const data = await req.file();
     
@@ -9,8 +10,13 @@ export async function uploadFile(req:FastifyRequest,reply:FastifyReply){
         return reply.status(400).send({ message: 'No file uploaded' });
     }
 
-    const { filename, mimetype, file } = data ;
-    const uploadPath = getPathToFiles(filename)
+    const { filename,  file } = data ;
+    
+    const foldername = 'images'
+    const uploadPath = getPathToFiles(filename,foldername)
+    const folderPath = getPathToFolder(foldername)
+
+    createFolderIfNotExists(folderPath)
 
     const writeStream = fs.createWriteStream(uploadPath);
     file.pipe(writeStream);

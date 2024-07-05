@@ -4,7 +4,7 @@ import { z } from "zod";
 import fs from "fs";
 import { getPathToFiles } from "@/utils/get-path-to-files";
 
-export async function downloadFile(req:FastifyRequest,reply:FastifyReply){
+export async function downloadFiles(req:FastifyRequest,reply:FastifyReply){
     
     const downloadFileSchema = z.object({
         filename: z.string()
