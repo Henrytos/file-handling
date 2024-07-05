@@ -3,7 +3,7 @@ import { createReadStream } from "fs";
 import path from "path";
 import { z } from "zod";
 import fs from "fs";
-import { getPathToFiles } from "../../../utils/get-path-project";
+import { getPathToFiles } from "@/utils/get-path-project";
 
 export async function downloadFile(req:FastifyRequest,reply:FastifyReply){
     

@@ -1,7 +1,7 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import fs from "fs";
 import path from "path";
-import { getPathToFiles } from "../../../utils/get-path-project";
+import { getPathToFiles } from "@/utils/get-path-project";
 export async function uploadFile(req:FastifyRequest,reply:FastifyReply){
     const data = await req.file();
     

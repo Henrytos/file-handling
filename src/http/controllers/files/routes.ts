@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { uploadFile } from "./upload";
-import { downloadFile } from "./dowload";
+import { downloadFile } from "./download";
 import { uploadFiles } from "./uploads";
 
 export async function fileRoutesApp(app:FastifyInstance){
