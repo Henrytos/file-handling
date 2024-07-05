@@ -1,0 +1,7 @@
+@baseurl=http://localhost:3333
+
+POST {{baseurl}}/files
+Content-Type: multipart/form-data
+Content-Disposition: form-data; name="file"; filename="example.jpg"
+
+< ./example.jpg
